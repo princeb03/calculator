@@ -1,0 +1,176 @@
+:root {
+    --main-background: #9fb8ad;
+    --calculator-color: #383e56;
+    --screen-color: white;
+    --button-color: #c06014;
+    --button-hover: #ac5712;
+    --font-color: white;
+    --clear-color: #ff3131;
+    --clear-hover: #db2d2d;
+    --delete-color: #ff3131;
+    --delete-hover: #db2d2d;
+    --operation-color: gray;
+    --operation-hover: rgb(44, 44, 44);
+}
+
+body, html {
+    margin: 0px;
+    padding: 0px;
+    font-family: Helvetica, sans-serif;
+}
+#container {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: var(--main-background);
+}
+
+#calculator {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    width: 60%;
+    height: 60%;
+    border: 3px solid var(--calculator-color);
+    border-radius: 1rem;
+    padding: 25px 22px;
+    background: var(--calculator-color);
+    box-shadow: 8px 10px 10px rgb(80, 80, 80);
+}
+
+.screen {
+    height: 20%;
+    border: 0.1rem solid var(--calculator-color);
+    border-radius: 1rem;
+    background: var(--screen-color);
+    margin-bottom: 10%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.screen p {
+    font-size: 1.2em;
+}
+
+#button-grid {
+    background: var(--calculator-color);
+    height: 70%;
+    display: grid;
+    grid-template: repeat(5, 1fr) / repeat(4, 1fr);
+    grid-template-areas:
+        "clear delete equals equals"
+        "b7 b8 b9 divide"
+        "b4 b5 b6 multiply"
+        "b1 b2 b3 subtract"
+        ". b0 bdot add";
+    gap: 10px;
+}
+button {
+    background: var(--button-color);
+    color: var(--font-color);
+    border-radius: 1.3rem;
+    border: 0.1rem solid var(--button-color);
+    font-size: 1.2rem;
+    box-shadow: 0 0.3rem rgb(90, 89, 89);
+    transform: translateY(-0.3rem);
+    transition: box-shadow 150ms, transform 150ms, background-color 300ms, border-color 300ms;
+}
+
+button:hover {
+    background-color: var(--button-hover);
+    border-color: var(--button-hover);
+    cursor: pointer;
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 0 rgb(90, 89, 89);
+}
+.add {
+    grid-area: add;
+}
+.subtract {
+    grid-area: subtract;
+}
+.multiply {
+    grid-area: multiply;
+}
+.divide {
+    grid-area: divide;
+}
+.clear {
+    grid-area: clear;
+    background-color: var(--clear-color);
+    border-color: var(--clear-color);
+}
+.clear:hover {
+    background-color: var(--clear-hover);
+    border-color: var(--clear-hover);
+}
+[operator] {
+    background-color: var(--operation-color);
+    border-color: var(--operation-color);
+}
+[operator]:hover {
+    background-color: var(--operation-hover);
+    border-color: var(--operation-hover);
+}
+.delete {
+    grid-area: delete;
+    background-color: var(--delete-color);
+    border-color: var(--delete-color);
+}
+.delete:hover {
+    background-color: var(--delete-hover);
+    border-color: var(--delete-hover);
+}
+.equals {
+    grid-area: equals;
+    background-color: var(--operation-color);
+    border-color: var(--operation-color);
+}
+.equals:hover {
+    background-color: var(--operation-hover);
+    border-color: var(--operation-hover);
+}
+.b0 {
+    grid-area: b0;
+}
+.b1 {
+    grid-area: b1;
+}
+.b2 {
+    grid-area: b2;
+}
+.b3 {
+    grid-area: b3;
+}
+.b4 {
+    grid-area: b4;
+}
+.b5 {
+    grid-area: b5;
+}
+.b6 {
+    grid-area: b6;
+}
+.b7 {
+    grid-area: b7;
+}
+.b8 {
+    grid-area: b8;
+}
+.b9 {
+    grid-area: b9;
+}
+
+.bdot {
+    grid-area: bdot;
+}
+button:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.3);
+}
